@@ -7,13 +7,20 @@ from huggingface_hub import snapshot_download
 
 # ── download chroma_db from Hugging Face if not present ───────────────────
 CHROMA_PATH = Path("chroma_db")
+HF_TOKEN = os.getenv("HF_TOKEN")
+if not HF_TOKEN:
+    try:
+        HF_TOKEN = st.secrets.get("HF_TOKEN")
+    except Exception:
+        pass
+
 if not CHROMA_PATH.exists():
     with st.spinner("🔄 Loading knowledge base... (first time only, ~2 mins)"):
         snapshot_download(
             repo_id="anu942004/gitlab-chatbot-db",
             repo_type="dataset",
             local_dir="chroma_db",
-            token=os.getenv("HF_TOKEN")
+            token=HF_TOKEN
         )
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
