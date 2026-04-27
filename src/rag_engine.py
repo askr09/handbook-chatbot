@@ -12,7 +12,14 @@ load_dotenv()
 ROOT = Path(__file__).resolve().parent.parent
 
 # ── clients ────────────────────────────────────────────────────────────────
+# Support both local .env and Streamlit Cloud secrets
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    try:
+        import streamlit as st
+        GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY")
+    except Exception:
+        pass
 gemini_client = genai.Client(
     api_key=GEMINI_API_KEY,
     http_options=types.HttpOptions(api_version='v1beta')
