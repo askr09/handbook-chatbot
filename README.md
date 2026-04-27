@@ -6,14 +6,14 @@ An AI-powered chatbot that helps employees and aspiring candidates easily access
 
 ## 🌐 Live Demo
 
-🔗 https://gl-assistant-bot.streamlit.app/
+🔗https://handbook-chatbot-gl.streamlit.app/
 
 ---
 
 ## 👤 Author
 
-**R Kiran Kumar**
-GitHub: https://github.com/rathodkiran02
+**Donipati Anu Kumari**
+GitHub: https://github.com/askr09
 
 ---
 
@@ -88,7 +88,7 @@ gitlab-handbook-chatbot/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/rathodkiran02/gitlab-handbook-chatbot
+git clone https://github.com/askr09/handbook-chatbot
 cd gitlab-handbook-chatbot
 ```
 
