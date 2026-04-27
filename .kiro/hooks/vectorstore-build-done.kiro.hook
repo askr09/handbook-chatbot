@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Vectorstore Build Monitor",
+  "description": "Checks if the ChromaDB vectorstore build is complete and notifies the user",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Check terminal 8 output using getProcessOutput tool. If the output contains \"Vector store ready\" or \"Done!\", tell the user the ChromaDB build is complete and offer to start the Streamlit app. If it's still running, tell the user the current progress percentage and estimated time remaining. Keep it brief."
+  }
+}
